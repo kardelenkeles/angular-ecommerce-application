@@ -7,6 +7,7 @@ import {RouterLink, RouterOutlet} from "@angular/router";
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { NavbarComponent } from './navbar/navbar.component';
+import {NgxsModule} from "@ngxs/store";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserModule,
     RouterOutlet,
     AppRoutingModule,
-    RouterLink
+    RouterLink,
+    NgxsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
