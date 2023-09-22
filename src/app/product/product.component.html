@@ -26,6 +26,8 @@
                         class="price"
 
                 >${{product.price}}
+
+
                 </div>
 
                 <div
@@ -36,6 +38,7 @@
 
                 <button class="save-button">Add to Card</button>
             </div>
+            <i class="trash bi bi-trash" (click)="deleteProduct(product.id)"></i>
         </div>
     </form>
 </div>

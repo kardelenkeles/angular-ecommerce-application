@@ -32,6 +32,11 @@ export class ProductCrudComponent {
       discount: this.newDiscount,
       id: this.newId
     }))
+    this.newProductName = '';
+    this.newCategory = '';
+    this.newPrice = 0 ;
+    this.newDetails = '';
+    this.newDiscount = 0 ;
 
   }
 
