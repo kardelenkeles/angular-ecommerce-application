@@ -8,11 +8,11 @@ import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import {NgxsModule} from "@ngxs/store";
-import { CreateComponent } from './product/create/create.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import {ProductState} from "./state/state/product.state";
 import {FormsModule} from "@angular/forms";
+import { ProductCrudComponent } from './product/product-crud/product-crud.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,9 @@ import {FormsModule} from "@angular/forms";
     ProductComponent,
     HomeComponent,
     NavbarComponent,
-    CreateComponent,
+    ProductCrudComponent,
+
+
 
   ],
     imports: [

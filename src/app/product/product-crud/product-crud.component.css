@@ -1,0 +1,13 @@
+.flex-container{
+    display: flex;
+    justify-content: center;
+}
+
+.mb-3{
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 1000px;
+    margin: 55px;
+
+}
+

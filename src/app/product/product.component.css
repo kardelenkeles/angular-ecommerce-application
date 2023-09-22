@@ -50,7 +50,7 @@
     text-align: center;
 }
 .discount {
-    background-color: #ff9e6d; /* Background color */
+    background-color: red; /* Background color */
     color: #fff; /* Text color */
     font-size: 18px; /* Text size */
     padding: 5px 10px; /* Padding around the text */
