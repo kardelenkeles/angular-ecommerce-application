@@ -47,10 +47,23 @@
     font-size: 22px;
     width: 450px;
     height: 120px;
+    text-align: center;
+}
+.discount {
+    background-color: #ff9e6d; /* Background color */
+    color: #fff; /* Text color */
+    font-size: 18px; /* Text size */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    position: absolute; /* Position it as needed */
+    top: 20px; /* Adjust the top position */
+    right: 20px; /* Adjust the right position */
 }
 
 .price{
-    width: 60px;
-    height: 50px;
-
+    font-size: 25px;
+    margin-left: 10px;
+    line-height: 100px;
 }
+
+
