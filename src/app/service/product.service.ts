@@ -9,8 +9,8 @@ import {environment} from "../environments/environment";
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  getProduct(id: string) {
-    return this.http.get<Product[]>(environment.apiUrl + `/products/${id}`);
+  getProduct(id: number) {
+    return this.http.get<Product>(environment.apiUrl + `/products/${id}`);
   }
   getALlProducts() {
     return this.http.get<Product[]>(environment.apiUrl + `/products`);

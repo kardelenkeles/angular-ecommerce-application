@@ -13,6 +13,7 @@ import { HttpClientModule} from "@angular/common/http";
 import {ProductState} from "./state/state/product.state";
 import {FormsModule} from "@angular/forms";
 import { ProductCrudComponent } from './product/product-crud/product-crud.component';
+import { AProductComponent } from './product/a-product/a-product.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProductCrudComponent } from './product/product-crud/product-crud.compon
     HomeComponent,
     NavbarComponent,
     ProductCrudComponent,
+    AProductComponent,
 
 
 

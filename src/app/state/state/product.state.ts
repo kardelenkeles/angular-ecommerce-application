@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {ProductStateModel} from "../model/productStateModel";
 import {ProductService} from "../../service/product.service";
-import {CreateProduct, DeleteProduct, GetAllProducts, UpdateProduct} from "../action/product.action";
+import {CreateProduct, DeleteProduct, GetAllProducts, GetOneProduct, UpdateProduct} from "../action/product.action";
 import {tap} from "rxjs";
 import {Product} from "../model/product";
 
@@ -30,6 +30,20 @@ export class ProductState {
         });
       }),
     );
+  }
+
+  @Action(GetOneProduct)
+  getOneProduct({getState, setState}: StateContext<ProductStateModel>, {id} : GetOneProduct){
+      return this.productService.getProduct(id).pipe(
+          tap((res: Product) => {
+              const state = getState();
+              const foundProduct = state.products.filter((product) => product.id !== id);
+              setState({
+                  ...state,
+                  products: foundProduct,
+              });
+          }),
+      );
   }
 
   @Action(GetAllProducts)
