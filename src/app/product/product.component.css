@@ -1,0 +1,56 @@
+.flex-container{
+    display: flex;
+}
+
+.card {
+    float: left;
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 1000px;
+    margin: 55px;
+}
+
+
+.card-content {
+    padding: 16px;
+    width: 500px;
+    height: 300px;
+}
+
+
+.save-button {
+    position: absolute;
+    background-color: #fbd814;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 40px;
+    width: 150px;
+    height: 30px;
+    right: 25px;
+    bottom: 25px;
+}
+
+.save-button:hover {
+    background-color: #FCD200;
+}
+
+.name{
+    line-height: 32px;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.details{
+    font-size: 22px;
+    width: 450px;
+    height: 120px;
+}
+
+.price{
+    width: 60px;
+    height: 50px;
+
+}

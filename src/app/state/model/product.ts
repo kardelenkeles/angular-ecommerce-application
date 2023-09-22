@@ -5,8 +5,9 @@ export interface Product {
   productName: string;
 
   details: string;
-
-  productImage: string;
+  category: string;
+  //
+  // productImage: string;
 
   price: number;
 
@@ -20,8 +21,9 @@ export interface UpdateProduct{
   productName: string;
 
   details: string;
+  category: string;
 
-  productImage: string;
+  // productImage: string;
 
   price: number;
 

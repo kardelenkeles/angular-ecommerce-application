@@ -18,10 +18,6 @@ export class ProductState {
   constructor(private productService: ProductService) {
   }
 
-  @Selector()
-  static getProducts(state: ProductStateModel) {
-    return state.products;
-  }
 
   @Action(CreateProduct)
   createProduct({getState, patchState}: StateContext<ProductStateModel>, {payload}: CreateProduct,

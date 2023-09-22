@@ -13,7 +13,7 @@ export class ProductService {
     return this.http.get<Product[]>(environment.apiUrl + `api/products/${id}`);
   }
   getALlProducts() {
-    return this.http.get<Product[]>(environment.apiUrl + `api/products`);
+    return this.http.get<Product[]>(environment.apiUrl + `/products`);
   }
 
   createProduct(payload: Product) {

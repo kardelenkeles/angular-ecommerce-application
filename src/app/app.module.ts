@@ -12,6 +12,7 @@ import { CreateComponent } from './product/create/create.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {ProductState} from "./state/state/product.state";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,15 +23,16 @@ import {ProductState} from "./state/state/product.state";
     CreateComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    RouterOutlet,
-    AppRoutingModule,
-    RouterLink,
-    NgxsModule.forRoot([ProductState]),
-    NgbModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterOutlet,
+        AppRoutingModule,
+        RouterLink,
+        NgxsModule.forRoot([ProductState]),
+        NgbModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

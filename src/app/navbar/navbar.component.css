@@ -2,33 +2,43 @@
 .flex {
   display: flex;
   justify-content: center;
-  color: white;
 }
 
 .navbar {
   margin: 15px;
   width: 1000px;
   justify-content: center;
+}
 
-  border-radius: 5px;
-  box-shadow: 0 0 50px 15px #48abe0;
+.btn{
+  font-size: 20px;
+  color: black;
 }
 
 
 .navbar-item {
-  margin: 5px 25px;
+  margin: 6px 25px;
+  color: black;
 }
 
 
 .navbar a {
   text-decoration: none;
   justify-content: center;
-  color: black;
   font-size: 20px;
+  color: black;
+  transition: all 1s ease;
+}
+
+.navbar a:hover {
+  padding: 10px;
+  transform: scale(1.0) perspective(1px);
+  box-shadow: 0 0 10px orange;
 }
 
 .navbar-container {
   display: flex;
   padding: 10px 0;
-
 }
+
+

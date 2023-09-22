@@ -1,5 +1,38 @@
 <app-navbar></app-navbar>
 
-<div class="flex-container">
 
+<div class="flex-container">
+    <form>
+        <div class="card"
+             *ngFor="let product of products">
+            <div
+                    class="card-content"
+            >
+                <div
+                        class="name"
+
+                >
+                    {{product.productName}}
+                </div>
+                <hr>
+
+                <div
+                        class="details"
+                >
+                    {{product.details}}
+                </div>
+
+                <div
+                        class="price"
+
+                >{{product.price}}
+                </div>
+
+                <div>${{product.discount}}</div>
+
+                <button class="save-button">Add to Card</button>
+            </div>
+        </div>
+    </form>
 </div>
+
