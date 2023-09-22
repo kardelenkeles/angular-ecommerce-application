@@ -23,7 +23,7 @@ export class ProductService {
     return this.http.delete<Product>(`http://localhost:4200/api/tasks/${id}`);
   }
 
-  updateProduct(id: number) {
+  updateProduct(id: number, payload:Product) {
 
   }
 }

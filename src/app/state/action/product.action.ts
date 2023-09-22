@@ -17,12 +17,13 @@ export class GetOneProduct {
 export class DeleteProduct {
     static readonly type = '[Product] Delete Product';
 
-    constructor() {}
+    constructor(public id:number) {}
 }
 
 export class UpdateProduct {
     static readonly type = '[Product] Update Product';
 
-    constructor(
+    constructor(public id: number,
+                public payload: Product
     ) {}
 }
