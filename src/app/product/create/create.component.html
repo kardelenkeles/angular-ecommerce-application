@@ -1,0 +1,69 @@
+<div class="flex-container">
+  <form>
+    <div class="mb-3">
+      <label class="form-label">
+        Product Name:
+        <input
+          type="text"
+          name="Name"
+          class="form-control"
+        />
+      </label>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Product Detail:</label>
+      <input
+        type="text"
+        name="Detail"
+        class="form-control"
+      />
+
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Price:</label>
+      <input
+        type="number"
+        name="Price"
+        class="form-control"
+      />
+
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Discount:</label>
+      <input
+        type="number"
+        name="Discount"
+        class="form-control"
+      />
+
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Product Image:</label>
+      <input
+        alt="product-image"
+        type="file"
+        name="Image"
+        class="form-control"
+        accept="image/*"
+      />
+
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Upload:</label>
+      <button
+        class="btn btn-success btn-sm float-right">
+        <!--        [disabled]="!selectedFiles"-->
+        <!--        (click)="upload()"-->
+
+      </button>
+    </div>
+
+<!--    <div>-->
+<!--      <img [src]="preview" class="preview">-->
+<!--    </div>-->
+
+    <button type="submit" class="btn btn-dark">Save</button>
+  </form>
+</div>

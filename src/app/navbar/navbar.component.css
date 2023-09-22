@@ -1,10 +1,5 @@
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 
-.flex{
+.flex {
   display: flex;
   justify-content: center;
   color: white;
@@ -14,25 +9,26 @@ ul {
   margin: 15px;
   width: 1000px;
   justify-content: center;
+
   border-radius: 5px;
   box-shadow: 0 0 50px 15px #48abe0;
 }
 
 
-.navbar ul {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-}
-
-
-.navbar li {
-  margin: 0 15px;
+.navbar-item {
+  margin: 5px 25px;
 }
 
 
 .navbar a {
   text-decoration: none;
+  justify-content: center;
   color: black;
-  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar-container {
+  display: flex;
+  padding: 10px 0;
+
 }

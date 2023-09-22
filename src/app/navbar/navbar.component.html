@@ -1,16 +1,22 @@
 <div class="flex">
   <nav class="navbar">
-    <ul>
-      <li>
+    <div class="navbar-container">
+      <div class="navbar-item">
         <a routerLink="/">
           Home
         </a>
-      </li>
-      <li>
-        <a routerLink="/products">
-          Products
-        </a>
-      </li>
-    </ul>
+      </div>
+      <div ngbDropdown class="dropdown">
+        <button ngbDropdownToggle class="btn btn-secondary" type="button"
+                aria-expanded="false">
+          Dropdown button
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+          <div><a ngbDropdownItem routerLink="/create-product">Add Product</a></div>
+          <div><a ngbDropdownItem routerLink="/products">View Products</a></div>
+        </div>
+      </div>
+    </div>
   </nav>
 </div>
+

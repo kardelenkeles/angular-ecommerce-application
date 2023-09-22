@@ -8,20 +8,28 @@ import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import {NgxsModule} from "@ngxs/store";
+import { CreateComponent } from './product/create/create.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {ProductState} from "./state/state/product.state";
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    CreateComponent,
+
   ],
   imports: [
     BrowserModule,
     RouterOutlet,
     AppRoutingModule,
     RouterLink,
-    NgxsModule.forRoot([])
+    NgxsModule.forRoot([ProductState]),
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
