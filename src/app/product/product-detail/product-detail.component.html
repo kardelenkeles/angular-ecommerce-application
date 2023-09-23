@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+
+<div class="flex-container">
+  <div
+    class="card"
+  >
+    <div
+      class="card-content"
+      >
+      <div
+        class="name">
+        {{productDetail.productName}}
+      </div>
+      <hr>
+
+      <div
+        class="details">
+        {{productDetail.details}}
+      </div>
+
+      <div
+        class="price">
+        {{productDetail.price}}
+      </div>
+
+      <div
+        class="discount">
+        {{productDetail.discount}}
+      </div>
+
+      <button
+        (click)="goAndAddCard()"
+        class="save-button"
+      >Add to Card
+      </button>
+      <i class="trash bi bi-trash" ></i>
+    </div>
+  </div>
+</div>

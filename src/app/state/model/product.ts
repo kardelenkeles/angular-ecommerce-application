@@ -29,3 +29,4 @@ export interface UpdateProduct{
 
   discount: number;
 }
+

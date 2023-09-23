@@ -2,48 +2,50 @@
 
 
 <div class="flex-container">
-    <form>
+  <form>
+    <div
+      (click)="getProduct(product.id)"
+      class="card"
+      *ngFor="let product of products">
+      <div
+        class="card-content"
+      >
         <div
-                class="card"
-                *ngFor="let product of products">
-            <div
-                    class="card-content"
-            >
-                <div
-                        class="name"
-                        (click)="navigateProduct(product.id)"
-                >
-                    {{product.productName}}
-                </div>
-                <hr>
-
-                <div
-                        class="details"
-                >
-                    {{product.details}}
-                </div>
-
-                <div
-                        class="price"
-
-                >${{product.price}}
-
-
-                </div>
-
-                <div
-                        class="discount"
-
-                >-{{product.discount}}% !
-                </div>
-
-                <button
-                        (click)="goAndAddCard()"
-                        class="save-button"
-                >Add to Card</button>
-            </div>
-            <i class="trash bi bi-trash" (click)="deleteProduct(product.id)"></i>
+          class="name"
+          (click)="getProduct(product.id)"
+        >
+          {{ product.productName }}
         </div>
-    </form>
+        <hr>
+
+        <div
+          class="details"
+        >
+          {{product.details}}
+        </div>
+
+        <div
+          class="price"
+
+        >${{product.price}}
+
+
+        </div>
+
+        <div
+          class="discount"
+
+        >-{{product.discount}}% !
+        </div>
+
+        <button
+          (click)="goAndAddCard()"
+          class="save-button"
+        >Add to Card
+        </button>
+      </div>
+      <i class="trash bi bi-trash" (click)="deleteProduct(product.id)"></i>
+    </div>
+  </form>
 </div>
 

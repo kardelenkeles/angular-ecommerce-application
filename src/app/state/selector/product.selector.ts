@@ -7,4 +7,9 @@ export class ProductSelector {
     static getProducts(state: ProductStateModel) {
         return state.products;
     }
+
+  @Selector([ProductState])
+  static getProductDetail(state:ProductStateModel){
+    return state.productDetail;
+  }
 }

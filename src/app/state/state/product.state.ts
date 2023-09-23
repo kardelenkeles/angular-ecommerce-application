@@ -10,6 +10,7 @@ import {Product} from "../model/product";
   name: 'products',
   defaults: {
     products: [],
+    productDetail: undefined
   },
 })
 @Injectable()
@@ -33,17 +34,15 @@ export class ProductState {
   }
 
   @Action(GetOneProduct)
-  getOneProduct({getState, setState}: StateContext<ProductStateModel>, {id} : GetOneProduct){
+  getOneProduct({getState, patchState}: StateContext<ProductStateModel>, {id} : GetOneProduct){
       return this.productService.getProduct(id).pipe(
-          tap((res: Product) => {
-              const state = getState();
-              const foundProduct = state.products.filter((product) => product.id !== id);
-              setState({
-                  ...state,
-                  products: foundProduct,
-              });
-          }),
-      );
+        tap((data) => {
+          console.log(data)
+          patchState({
+            productDetail: data
+          })
+        }),
+      )
   }
 
   @Action(GetAllProducts)
