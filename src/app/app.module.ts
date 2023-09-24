@@ -14,7 +14,7 @@ import {ProductState} from "./state/state/product.state";
 import {FormsModule} from "@angular/forms";
 import {ProductCrudComponent} from './product/product-crud/product-crud.component';
 import {ProductDetailComponent} from './product/product-detail/product-detail.component';
-import { CategoriesComponent } from './categories/categories.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +24,6 @@ import { CategoriesComponent } from './categories/categories.component';
     NavbarComponent,
     ProductCrudComponent,
     ProductDetailComponent,
-    CategoriesComponent,
 
 
   ],

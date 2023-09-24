@@ -1,10 +1,23 @@
 <app-navbar></app-navbar>
-<app-categories></app-categories>
+
+<div class="wrapper">
+  <h4>CATEGORIES</h4>
+  <div class="sidebar" *ngFor="let category of uniqueCategories">
+    <div
+      class="item"
+      (click)="getItemsByCategory(category)"
+    >
+      {{category}}
+    </div>
+  </div>
+</div>
+
+
 <div class="flex-container">
   <form>
     <div
       class="card"
-      *ngFor="let product of products">
+      *ngFor="let product of currentCategory ? filteredProducts : products">
       <div
         class="card-content">
         <div
@@ -41,4 +54,5 @@
     </div>
   </form>
 </div>
+
 

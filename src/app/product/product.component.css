@@ -2,8 +2,51 @@
     display: flex;
 }
 
+.wrapper {
+  background: rgb(5, 68, 104);
+  width: 250px;
+  height: 100%;
+  position: fixed;
+}
+
+.sidebar {
+  width: 250px;
+  left: 0;
+  padding-top: 20px;
+}
+
+.item {
+  border-bottom: 1px solid #10558d;
+  color: rgb(241, 237, 237);
+  font-size: 16px;
+
+}
+
+li {
+  list-style-type: none
+}
+
+.item:hover,
+.item:active {
+  color: #0c7db1;
+
+  background: white;
+  border-right: 2px solid rgb(5, 68, 104);
+}
+
+.item:hover:before,
+.item.active:before {
+  display: block;
+}
+
+h4 {
+  color: white;
+  text-align: center;
+}
+
+
 .card {
-    float: left;
+    float: right;
     background-color: #fff;
     border-radius: 8px;
     max-width: 1000px;
@@ -15,6 +58,7 @@
     padding: 16px;
     width: 500px;
     height: 500px;
+    cursor: pointer;
 }
 
 

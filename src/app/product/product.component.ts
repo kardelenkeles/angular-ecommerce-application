@@ -16,6 +16,12 @@ export class ProductComponent implements OnInit {
   products$: Observable<Product[]>;
 
   products: Product[] = [];
+  categories: any[] = [];
+  uniqueCategories: any[] = [];
+  filteredProducts: any[] = [];
+
+  currentCategory: string | null = null;
+
 
   constructor(private store: Store,
               private router: Router
@@ -24,8 +30,27 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new GetAllProducts());
-    this.products$.subscribe((data) => (
-      this.products = data))
+
+    this.products$.subscribe((data) => {
+        this.products = data;
+        this.categories = this.products.map((item) => {
+            item.category;
+            if (!this.uniqueCategories.includes(item.category)) {
+              this.uniqueCategories.push(item.category);
+            }
+            return item.category;
+          }
+        );
+        console.log(this.categories)
+        console.log(this.uniqueCategories)
+      }
+    )
+  }
+
+  getItemsByCategory(category: string) {
+    this.currentCategory = category;
+    this.filteredProducts = this.products.filter(item => item.category === category)
+    console.log(this.filteredProducts)
   }
 
 
