@@ -4,7 +4,7 @@ import {ProductSelector} from "../state/selector/product.selector";
 import {Observable} from "rxjs";
 import {Product} from "../state/model/product";
 import {Router} from "@angular/router";
-import {DeleteProduct, GetAllProducts, GetOneProduct} from "../state/action/product.action";
+import {DeleteProduct, GetAllProducts, GetOneProduct, UpdateProduct} from "../state/action/product.action";
 
 @Component({
   selector: 'app-product',
@@ -17,7 +17,6 @@ export class ProductComponent implements OnInit {
 
   products: Product[] = [];
 
-
   constructor(private store: Store,
               private router: Router
   ) {
@@ -25,8 +24,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new GetAllProducts());
-    this.products$.subscribe((data) => (this.products = data));
-
+    this.products$.subscribe((data) => (
+      this.products = data))
   }
 
 
@@ -36,12 +35,9 @@ export class ProductComponent implements OnInit {
     }
   }
 
-
   getProduct(id: number) {
     this.router.navigate(['/products', id]).then();
   }
 
-  goAndAddCard() {
 
-  }
 }

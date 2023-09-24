@@ -9,8 +9,8 @@ export class CreateProduct {
 export class GetAllProducts {
     static readonly type = '[Product] Get All Products';
 }
-
 export class GetOneProduct {
+
     static readonly type = '[Product] Get One Product';
 
     constructor(public id:number) {

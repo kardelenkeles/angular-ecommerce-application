@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ProductSelector} from "../../state/selector/product.selector";
 import {Select, Store} from "@ngxs/store";
 import {Router} from "@angular/router";
-import {CreateProduct} from "../../state/action/product.action";
+import {CreateProduct, UpdateProduct} from "../../state/action/product.action";
 
 @Component({
   selector: 'app-product-crud',
@@ -39,5 +39,17 @@ export class ProductCrudComponent {
     this.newDiscount = 0 ;
 
   }
+
+  updateProduct(id: number) {
+    this.store.dispatch(new UpdateProduct(id, {
+      productName: this.newProductName,
+      details: this.newDetails,
+      category: this.newCategory,
+      price: this.newPrice,
+      discount: this.newDiscount,
+      id: this.newId
+    }))
+  }
+
 
 }

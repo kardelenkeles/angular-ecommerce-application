@@ -30,11 +30,10 @@
       </div>
 
       <button
-        (click)="goAndAddCard()"
         class="save-button"
       >Add to Card
       </button>
-      <i class="trash bi bi-trash" ></i>
+      <i class="trash bi bi-trash" (click)="deleteProduct(productDetail.id)"></i>
     </div>
   </div>
 </div>

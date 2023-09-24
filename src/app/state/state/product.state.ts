@@ -46,10 +46,10 @@ export class ProductState {
   }
 
   @Action(GetAllProducts)
-  getAllTasks({ patchState }: StateContext<ProductStateModel>) {
+  getAllTasks(ctc: StateContext<ProductStateModel>) {
     return this.productService.getALlProducts().pipe(
       tap((result: any) => {
-        patchState({
+        ctc.patchState({
           products: result,
         });
       }),

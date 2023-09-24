@@ -1,45 +1,38 @@
 <app-navbar></app-navbar>
-
-
+<app-categories></app-categories>
 <div class="flex-container">
   <form>
     <div
-      (click)="getProduct(product.id)"
       class="card"
       *ngFor="let product of products">
       <div
-        class="card-content"
-      >
+        class="card-content">
         <div
           class="name"
-          (click)="getProduct(product.id)"
-        >
+          (click)="getProduct(product.id)">
           {{ product.productName }}
         </div>
         <hr>
-
         <div
-          class="details"
-        >
+          class="details">
           {{product.details}}
         </div>
-
         <div
-          class="price"
-
-        >${{product.price}}
-
-
+          class="details">
+          {{product.category}}
         </div>
 
         <div
-          class="discount"
+          class="price">
+          ${{product.price}}
+        </div>
 
-        >-{{product.discount}}% !
+        <div
+          class="discount">
+          -{{product.discount}}% !
         </div>
 
         <button
-          (click)="goAndAddCard()"
           class="save-button"
         >Add to Card
         </button>

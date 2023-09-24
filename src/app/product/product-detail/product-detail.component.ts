@@ -5,8 +5,6 @@ import {Observable} from "rxjs";
 import {Product} from "../../state/model/product";
 import {DeleteProduct, GetAllProducts, GetOneProduct} from "../../state/action/product.action";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {ProductComponent} from "../product.component";
-import {ProductService} from "../../service/product.service";
 
 @Component({
   selector: 'app-product-detail',
@@ -19,10 +17,6 @@ export class ProductDetailComponent implements OnInit {
   productDetail: Product;
   constructor(private store: Store,
               private route: ActivatedRoute) {
-  }
-
-  goAndAddCard() {
-
   }
 
   deleteProduct(id: number) {
