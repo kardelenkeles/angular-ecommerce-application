@@ -5,7 +5,7 @@
   <div class="sidebar" *ngFor="let category of uniqueCategories">
     <div
       class="item"
-      (click)="getItemsByCategory(category)"
+      (click)="filterProductsByCategory(category)"
     >
       {{category}}
     </div>
@@ -17,7 +17,7 @@
   <form>
     <div
       class="card"
-      *ngFor="let product of currentCategory ? filteredProducts : products">
+      *ngFor="let product of products">
       <div
         class="card-content">
         <div

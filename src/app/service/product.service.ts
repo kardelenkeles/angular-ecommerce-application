@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Product, UpdateProduct} from "../state/model/product";
 import {environment} from "../environments/environment";
 
@@ -12,8 +12,10 @@ export class ProductService {
   getProduct(id: number) {
     return this.http.get<Product>(environment.apiUrl + `/products/${id}`);
   }
-  getALlProducts() {
-    return this.http.get<Product[]>(environment.apiUrl + `/products`);
+  getALlProducts(category?: string) {
+    const params = new HttpParams().set('category', category || '');
+    const url = `${environment.apiUrl}/products`;
+    return this.http.get<Product[]>(url, {params});
   }
 
   createProduct(payload: Product) {

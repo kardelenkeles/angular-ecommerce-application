@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new GetAllProducts());
+    this.store.dispatch(new GetAllProducts(''));
 
     this.products$.subscribe((data) => {
         this.products = data;
@@ -47,10 +47,14 @@ export class ProductComponent implements OnInit {
     )
   }
 
-  getItemsByCategory(category: string) {
-    this.currentCategory = category;
-    this.filteredProducts = this.products.filter(item => item.category === category)
-    console.log(this.filteredProducts)
+  // getItemsByCategory(category: string) {
+  //   this.currentCategory = category;
+  //   this.filteredProducts = this.products.filter(item => item.category === category)
+  //   console.log(this.filteredProducts)
+  // }
+
+  filterProductsByCategory(category: string){
+    this.store.dispatch(new GetAllProducts(category));
   }
 
 

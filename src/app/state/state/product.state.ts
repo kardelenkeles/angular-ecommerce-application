@@ -5,6 +5,7 @@ import {ProductService} from "../../service/product.service";
 import {CreateProduct, DeleteProduct, GetAllProducts, GetOneProduct, UpdateProduct} from "../action/product.action";
 import {tap} from "rxjs";
 import {Product} from "../model/product";
+import {patch} from "@ngxs/store/operators";
 
 @State<ProductStateModel>({
   name: 'products',
@@ -46,18 +47,19 @@ export class ProductState {
   }
 
   @Action(GetAllProducts)
-  getAllTasks(ctc: StateContext<ProductStateModel>) {
-    return this.productService.getALlProducts().pipe(
-      tap((result: any) => {
-        ctc.patchState({
-          products: result,
-        });
-      }),
-    );
+  getAllProducts({patchState}: StateContext<ProductStateModel>, {category}: GetAllProducts) {
+    return this.productService.getALlProducts(category).pipe(
+      tap((data) => {
+        console.log(data)
+        patchState({
+          products: data
+        })
+      })
+    )
   }
 
   @Action(DeleteProduct)
-  deleteTask({ getState, setState }: StateContext<ProductStateModel>, { id }: DeleteProduct,
+  deleteProduct({ getState, setState }: StateContext<ProductStateModel>, { id }: DeleteProduct,
   ) {
     return this.productService.deleteProduct(id).pipe(
       tap((res: Product) => {

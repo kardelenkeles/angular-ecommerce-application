@@ -8,6 +8,9 @@ export class CreateProduct {
 
 export class GetAllProducts {
     static readonly type = '[Product] Get All Products';
+
+    constructor(public category: string) {
+    }
 }
 export class GetOneProduct {
 
