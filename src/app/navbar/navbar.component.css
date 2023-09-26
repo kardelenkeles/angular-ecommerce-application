@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-.btn{
+.btn {
   font-size: 20px;
   color: black;
 }
@@ -41,4 +41,6 @@
   padding: 10px 0;
 }
 
-
+.bi-cart {
+  font-size: 25px;
+}

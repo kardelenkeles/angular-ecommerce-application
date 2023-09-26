@@ -12,7 +12,7 @@ export class ProductService {
   getProduct(id: number) {
     return this.http.get<Product>(environment.apiUrl + `/products/${id}`);
   }
-  getALlProducts(category?: string) {
+  getALlProducts(category ?: string) {
     const params = new HttpParams().set('category', category || '');
     const url = `${environment.apiUrl}/products`;
     return this.http.get<Product[]>(url, {params});

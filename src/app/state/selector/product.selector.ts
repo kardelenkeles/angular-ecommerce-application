@@ -8,8 +8,8 @@ export class ProductSelector {
         return state.products;
     }
 
-  @Selector([ProductState])
-  static getProductDetail(state:ProductStateModel){
-    return state.productDetail;
-  }
+    @Selector([ProductState])
+    static getProductDetail(state: ProductStateModel) {
+        return state.productDetail;
+    }
 }

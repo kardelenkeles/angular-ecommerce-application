@@ -35,7 +35,7 @@ export class ProductState {
   }
 
   @Action(GetOneProduct)
-  getOneProduct({getState, patchState}: StateContext<ProductStateModel>, {id} : GetOneProduct){
+  getOneProduct({patchState}: StateContext<ProductStateModel>, {id} : GetOneProduct){
       return this.productService.getProduct(id).pipe(
         tap((data) => {
           console.log(data)
