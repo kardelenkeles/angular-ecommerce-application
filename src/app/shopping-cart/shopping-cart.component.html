@@ -1,39 +1,43 @@
 <app-navbar></app-navbar>
 
-here:::
+
 <div class="flex-container">
-    <form>
+  <form>
+    <div
+      class="card"
+      *ngFor="let cartProduct of activeCart?.cardProduct">
+      <div
+        class="card-content">
+        <button
+          (click)="removeProductFromCart(cartProduct.product.id)"
+          type="submit" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <div
-                class="card"
-                *ngFor="let cartProduct of activeCart?.cardProduct">
-
-            <div
-                    class="card-content">
-                <div
-                        class="name"
-                        (click)="getProduct(cartProduct.product.id)">
-                    {{ cartProduct.product.productName }}
-                </div>
-                <hr>
-                <div
-                        class="details">
-                    {{cartProduct.product.details}}
-                </div>
-                <div
-                        class="details">
-                    {{cartProduct.product.category}}
-                </div>
-
-                <div
-                        class="price">
-                    ${{cartProduct.product.price}}
-                </div>
-
-                <div
-                        class="discount">
-                    -{{cartProduct.product.discount}}% !
-                </div>
-            </div>
+          class="name"
+          (click)="getProduct(cartProduct.product.id)">
+          {{ cartProduct.product.productName }}
         </div>
-    </form>
+        <hr>
+        <div
+          class="details">
+          {{cartProduct.product.details}}
+        </div>
+        <div
+          class="details">
+          {{cartProduct.product.category}}
+        </div>
+
+        <div
+          class="price">
+          ${{cartProduct.product.price}}
+        </div>
+
+        <div
+          class="discount">
+          -{{cartProduct.product.discount}}% !
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

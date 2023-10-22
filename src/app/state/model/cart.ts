@@ -9,7 +9,9 @@ export interface Cart {
     quantity: number;
 
     productIds?: number[];
+
     cardProduct: CartProduct[];
+
 }
 
 export interface CartProduct {

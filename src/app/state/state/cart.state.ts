@@ -4,7 +4,7 @@ import {CreateProduct} from "../action/product.action";
 import {tap} from "rxjs";
 import {CartStateModel} from "../model/cartStateModel";
 import {CartService} from "../../service/cart.service";
-import {CreateCart, GetCart, UpdateCart} from "../action/cart.action";
+import {CreateCart, GetCart, RemoveProductFromCart, UpdateCart} from "../action/cart.action";
 import {patch} from "@ngxs/store/operators";
 
 
@@ -48,7 +48,7 @@ export class CartState {
     @Action(UpdateCart)
     updateCart({getState, patchState}: StateContext<CartStateModel>, action: UpdateCart) {
 
-        this.cartService.updateCart(10, action.payload).subscribe((data) => {
+        this.cartService.updateCart(1, action.payload).subscribe((data) => {
             patchState({
                 oneCart: data as any
             });
@@ -80,5 +80,19 @@ export class CartState {
 
     }
 
+
+    @Action(RemoveProductFromCart)
+    removeProductFromCart({ getState, patchState }: StateContext<CartStateModel>, { productId }: RemoveProductFromCart) {
+        return this.cartService.removeProductFromCart(productId).pipe(
+            tap(() => {
+                const state = getState();
+                const filteredCart = state.cart.filter((product) => product.id !== productId);
+                patchState({
+                    cart: filteredCart,
+                });
+            }),
+        );
+
+    }
 
 }

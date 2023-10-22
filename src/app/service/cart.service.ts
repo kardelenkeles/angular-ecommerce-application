@@ -25,5 +25,9 @@ export class CartService {
 
     }
 
+    removeProductFromCart(id: number, productId: number) {
+        return this.http.delete(environment.apiUrl + `/card/${id}/${productId}`);
+    }
+
 
 }
