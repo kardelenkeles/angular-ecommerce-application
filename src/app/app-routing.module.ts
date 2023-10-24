@@ -13,6 +13,7 @@ import {RegisterComponent} from "./auth/register/register.component";
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductComponent},
   { path: 'create-product', component: ProductCrudComponent},
   { path: 'products/:id', component: ProductDetailComponent},
