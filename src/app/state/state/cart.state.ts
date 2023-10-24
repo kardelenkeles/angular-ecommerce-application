@@ -6,12 +6,19 @@ import {CartStateModel} from "../model/cartStateModel";
 import {CartService} from "../../service/cart.service";
 import {CreateCart, GetCart, RemoveProductFromCart, UpdateCart} from "../action/cart.action";
 import {patch} from "@ngxs/store/operators";
+import {Cart} from "../model/cart";
 
 
 @State<CartStateModel>({
     name: 'card',
     defaults: {
-        cart: [],
+        cart: {
+            id: 0,
+            total: 0,
+            quantity: 0,
+            productIds: [],
+            cardProduct: []
+        },
         oneCart: {}
     },
 })
@@ -45,54 +52,32 @@ export class CartState {
         );
     }
 
-    @Action(UpdateCart)
-    updateCart({getState, patchState}: StateContext<CartStateModel>, action: UpdateCart) {
 
-        this.cartService.updateCart(1, action.payload).subscribe((data) => {
-            patchState({
-                oneCart: data as any
-            });
-        });
-
-        console.log(action.payload)
-        //
-        // this.cartService.updateCart(action.payload).pipe(
-        //     tap(() => {
-        //         const state = getState();
-        //         console.log(state)
-        //         const currentCart = state.cart;
-        //         const updatedCart = {
-        //             ...currentCart,
-        //             action
-        //         }
-        //         patchState({
-        //             cart: updatedCart
-        //         })
-        //     })
-        // )
-        // const productCart = [...state.cart];
-        // if (!productCart.some(p => p.id === payload.id)) {
-        //     productCart.push(payload);
-        // }
-        //
-        // return productCart;
+    // @Action(UpdateCart)
+    // addToCart({patchState}: StateContext<CartStateModel>, {productId, cardId}: UpdateCart) {
+    //     return this.cartService.updateCart(cardId).pipe(
+    //         tap((result: any) => {
+    //             console.log('result', result)
+    //             patchState({
+    //                 cart: result,
+    //             });
+    //         }
+    //
+    // }
 
 
-    }
-
-
-    @Action(RemoveProductFromCart)
-    removeProductFromCart({ getState, patchState }: StateContext<CartStateModel>, { productId }: RemoveProductFromCart) {
-        return this.cartService.removeProductFromCart(productId).pipe(
-            tap(() => {
-                const state = getState();
-                const filteredCart = state.cart.filter((product) => product.id !== productId);
-                patchState({
-                    cart: filteredCart,
-                });
-            }),
-        );
-
-    }
+    // @Action(RemoveProductFromCart)
+    // removeProductFromCart({ getState, patchState }: StateContext<CartStateModel>, { productId }: RemoveProductFromCart) {
+    //     return this.cartService.removeProductFromCart(productId).pipe(
+    //         tap(() => {
+    //             const state = getState();
+    //             const filteredCart = state.cart.filter((product) => product.id !== productId);
+    //             patchState({
+    //                 cart: filteredCart,
+    //             });
+    //         }),
+    //     );
+    //
+    // }
 
 }

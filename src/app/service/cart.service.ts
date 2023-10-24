@@ -5,29 +5,27 @@ import {environment} from "../environments/environment";
 import {Cart, UpdateCart} from "../state/model/cart";
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class CartService {
-    constructor(private http: HttpClient) {
-    }
+  constructor(private http: HttpClient) {
+  }
 
-    getCart(id: number) {
-        return this.http.get<Cart>(environment.apiUrl + `/card/${id}`);
-    }
+  getCart(id: number) {
+    return this.http.get<Cart>(environment.apiUrl + `/card/${id}`);
+  }
 
-    createCart(payload: Cart) {
-        return this.http.post<Cart>(environment.apiUrl + `/card`, payload);
-    }
+  createCart(payload: Cart) {
+    return this.http.post<Cart>(environment.apiUrl + `/card`, payload);
+  }
 
-    updateCart(id: number, payload: UpdateCart) {
+  updateCart(cardId: number, productId: number) {
+    return this.http.put(environment.apiUrl + `/card/${cardId}/${productId}`, { cardId, productId });
+  }
 
-        return this.http.put(environment.apiUrl + `/card/${id}`, payload);
-
-    }
-
-    removeProductFromCart(id: number, productId: number) {
-        return this.http.delete(environment.apiUrl + `/card/${id}/${productId}`);
-    }
+  removeProductFromCart(id: number, productId: number) {
+    return this.http.delete(environment.apiUrl + `/card/${id}/${productId}`);
+  }
 
 
 }

@@ -18,13 +18,10 @@ export class GetCart {
 
 
 export class UpdateCart {
-
-  static readonly type = '[Cart] Update Cart';
-
-  constructor(
-    public payload: Partial<Cart>
-  ) {
-  }
+  static readonly type = '[Cart] Add To Cart';
+  constructor(public productId: number,
+              public cardId: number
+             ) {}
 }
 
 export class RemoveProductFromCart {

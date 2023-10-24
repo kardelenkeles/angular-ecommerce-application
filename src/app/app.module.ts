@@ -11,11 +11,14 @@ import {NgxsModule} from "@ngxs/store";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClientModule} from "@angular/common/http";
 import {ProductState} from "./state/state/product.state";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ProductCrudComponent} from './product/product-crud/product-crud.component';
 import {ProductDetailComponent} from './product/product-detail/product-detail.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import {CartState} from "./state/state/cart.state";
+import {LoginComponent} from "./auth/login/login.component";
+import {UserState} from "./auth/state/state/user.state";
+import {RegisterComponent} from "./auth/register/register.component";
 
 
 @NgModule({
@@ -27,6 +30,8 @@ import {CartState} from "./state/state/cart.state";
     ProductCrudComponent,
     ProductDetailComponent,
     ShoppingCartComponent,
+    LoginComponent,
+    RegisterComponent
 
 
   ],
@@ -35,10 +40,12 @@ import {CartState} from "./state/state/cart.state";
     RouterOutlet,
     AppRoutingModule,
     RouterLink,
-    NgxsModule.forRoot([ProductState, CartState]),
+    NgxsModule.forRoot([ProductState, CartState, UserState]),
     NgbModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

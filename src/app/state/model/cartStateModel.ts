@@ -2,6 +2,6 @@ import {Cart} from "./cart";
 
 
 export interface CartStateModel{
-  cart: Cart[];
+  cart: Cart;
   oneCart: Partial<Cart>;
 }

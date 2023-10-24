@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div class="bg-gray-200 h-screen flex items-center justify-center">
+  <form
+    class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 max-w-lg"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="loginForm"
+  >
+    <div class="mb-6">
+      <label
+        class="block text-gray-700 text-sm font-bold mb-2"
+      >Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+        placeholder="Enter username">
+    </div>
+    <div class="mb-6">
+      <label
+        class="block text-gray-700 text-sm font-bold mb-2"
+      >Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3"
+        placeholder="*********">
+    </div>
+    <div
+      class="flex items-center justify-between">
+      <button type="submit"
+              class="bg-white text-gray-800 font-semibold py-2 px-4 border border-gray-400">
+        Login
+      </button>
+    </div>
+    <p class="text-center text-gray-500 text-md">
+      Do not have an account yet? <a class="text-blue-500" routerLink="/register">Register now.</a>
+    </p>
+  </form>
+
+</div>

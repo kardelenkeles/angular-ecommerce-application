@@ -12,71 +12,66 @@ import {dateComparator} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-t
 
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+    selector: 'app-product',
+    templateUrl: './product.component.html',
+    styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Select(ProductSelector.getProducts)
-  @Select(CartSelector.getCart)
-  products$: Observable<Product[]>;
-  cart$: Observable<Cart[]>;
+    @Select(ProductSelector.getProducts)
+    @Select(CartSelector.getCart)
+    products$: Observable<Product[]>;
+    cart$: Observable<Cart[]>;
 
 
-  products: Product[] = [];
-  categories: any[] = [];
-  uniqueCategories: any[] = [];
-  cart: Cart[];
+    products: Product[] = [];
+    categories: any[] = [];
+    uniqueCategories: any[] = [];
+    cart: Cart[];
 
-  constructor(private store: Store,
-              private router: Router
-  ) {
-  }
-
-  ngOnInit(): void {
-    this.store.dispatch(new GetAllProducts(''));
-    this.store.dispatch(new GetCart(10));
-
-    this.products$.subscribe((data) => {
-        this.products = data;
-        this.categories = this.products.map((item) => {
-            item.category;
-            if (!this.uniqueCategories.includes(item.category)) {
-              this.uniqueCategories.push(item.category);
-            }
-            return item.category;
-          }
-        );
-        console.log(this.categories)
-        console.log(this.uniqueCategories)
-      }
-    )
-
-  }
-
-  filterProductsByCategory(category: string) {
-    this.store.dispatch(new GetAllProducts(category));
-  }
-
-
-  deleteProduct(id: number) {
-    if (confirm('Do you want to delete this task?')) {
-      this.store.dispatch(new DeleteProduct(id));
+    constructor(private store: Store,
+                private router: Router
+    ) {
     }
-  }
 
-  getProduct(id: number) {
-    this.router.navigate(['/products', id]).then();
-  }
+    ngOnInit(): void {
+        this.store.dispatch(new GetAllProducts(''));
+        this.store.dispatch(new GetCart(10));
+
+        this.products$.subscribe((data) => {
+                this.products = data;
+                this.categories = this.products.map((item) => {
+                        item.category;
+                        if (!this.uniqueCategories.includes(item.category)) {
+                            this.uniqueCategories.push(item.category);
+                        }
+                        return item.category;
+                    }
+                );
+                console.log(this.categories)
+                console.log(this.uniqueCategories)
+            }
+        )
+
+    }
+
+    filterProductsByCategory(category: string) {
+        this.store.dispatch(new GetAllProducts(category));
+    }
 
 
-  addToCard(product: any) {
-    const cart = this.store.selectSnapshot(CartSelector.getACart);
+    deleteProduct(id: number) {
+        if (confirm('Do you want to delete this task?')) {
+            this.store.dispatch(new DeleteProduct(id));
+        }
+    }
 
-    const productIds: number[] | undefined = cart.cardProduct?.map(item => item.productId);
-    productIds?.push(product.id);
-    this.store.dispatch(new UpdateCart({
-      productIds: productIds
-    }))
-  }
+    getProduct(id: number) {
+        this.router.navigate(['/products', id]).then();
+    }
+
+    addToCard(productId: number) {
+        console.log('in add to cart', productId)
+        this.store.dispatch(new UpdateCart(productId,1))
+    }
+
 }
