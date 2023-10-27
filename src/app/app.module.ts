@@ -19,6 +19,7 @@ import {CartState} from "./state/state/cart.state";
 import {LoginComponent} from "./auth/login/login.component";
 import {UserState} from "./auth/state/state/user.state";
 import {RegisterComponent} from "./auth/register/register.component";
+import {AuthGuard} from "./auth/guard/auth.guard";
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import {RegisterComponent} from "./auth/register/register.component";
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

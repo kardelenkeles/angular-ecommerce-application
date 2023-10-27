@@ -28,6 +28,16 @@ export class UserState {
     return state;
   }
 
+  @Selector()
+  static getUsername(state: UserStateModel) {
+    return state.username;
+  }
+
+  @Selector()
+  static getToken(state: UserStateModel) {
+    return state.token;
+  }
+
 
   @Action(RegisterAction)
   register({patchState}: StateContext<UserStateModel>, {username, email, password}: RegisterAction) {
@@ -44,7 +54,8 @@ export class UserState {
 
   @Action(LoginAction)
   login({patchState}: StateContext<UserStateModel>, {username, password}: LoginAction) {
-    return this.authService.login({username, password}).pipe(
+    console.log(username, password)
+    return this.authService.login(username, password).pipe(
       tap((user) => {
         patchState({
           username: user.username,
@@ -58,7 +69,10 @@ export class UserState {
   logout({patchState}: StateContext<UserStateModel>) {
     patchState({
       username: '',
-      password: ''
+      password: '',
+      token: '',
+      id: '',
+      email: ''
     });
   }
 

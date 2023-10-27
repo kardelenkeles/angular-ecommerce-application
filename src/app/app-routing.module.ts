@@ -8,6 +8,7 @@ import {ProductDetailComponent} from "./product/product-detail/product-detail.co
 import {ShoppingCartComponent} from "./shopping-cart/shopping-cart.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {RegisterComponent} from "./auth/register/register.component";
+import {AuthGuard} from "./auth/guard/auth.guard";
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'create-product', component: ProductCrudComponent},
   { path: 'products/:id', component: ProductDetailComponent},
   { path: 'card/:id', component: ShoppingCartComponent},
+
 
 ];
 
