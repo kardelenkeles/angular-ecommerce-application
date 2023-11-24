@@ -29,11 +29,6 @@ export class UserState {
   }
 
   @Selector()
-  static getUsername(state: UserStateModel) {
-    return state.username;
-  }
-
-  @Selector()
   static getToken(state: UserStateModel) {
     return state.token;
   }
@@ -54,12 +49,14 @@ export class UserState {
 
   @Action(LoginAction)
   login({patchState}: StateContext<UserStateModel>, {username, password}: LoginAction) {
-    console.log(username, password)
     return this.authService.login(username, password).pipe(
       tap((user) => {
         patchState({
           username: user.username,
-          password: user.password
+          password: user.password,
+          token: user.token,
+          id: user.id,
+          email: user.email
         });
       })
     );

@@ -1,4 +1,3 @@
-import {UserModel} from "./user.model";
 
 export interface UserStateModel {
   id: string;

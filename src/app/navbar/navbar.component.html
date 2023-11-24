@@ -16,8 +16,9 @@
                     <div><a ngbDropdownItem routerLink="/products">View Products</a></div>
                 </div>
             </div>
-            <div class="navbar-item">
-                {{username$ | async}}
+            <div class="navbar-item"
+            >
+                {{name}}
             </div>
             <a class="navbar-item"
                (click)="onLogout()"

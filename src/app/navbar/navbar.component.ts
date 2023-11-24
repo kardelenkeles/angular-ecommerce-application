@@ -12,21 +12,21 @@ import {UserState} from "../auth/state/state/user.state";
     styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-    @Select(UserState.getUsername)
+    @Select(UserState.getUser)
     username$: Observable<UserModel>;
-    username: string = "";
+    name: string;
 
     constructor(private router: Router,
                 private store: Store
     ) {
     }
 
-
     goCard(id: number) {
         this.router.navigate(['/card', id]).then();
     }
 
     onLogout() {
+
         this.store.dispatch(new LogoutAction());
         this.router.navigate(["/"]);
 
@@ -34,10 +34,12 @@ export class NavbarComponent implements OnInit {
 
 
     ngOnInit(): void {
-        this.username$.subscribe((user: UserModel) => {
-            this.username = user.username;
-            console.log('username', this.username)
-        });
+        this.username$.subscribe((data) => {
+          this.name = data.username.charAt(0).toUpperCase() + data.username.slice(1);
+          console.log(data)
+      });
+
+
     }
 
 }
